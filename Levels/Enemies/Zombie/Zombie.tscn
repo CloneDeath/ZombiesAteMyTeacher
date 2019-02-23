@@ -7,6 +7,7 @@
 extents = Vector2( 4, 9 )
 
 [node name="Zombie" instance=ExtResource( 1 )]
+collision_layer = 4
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( 0, -16 )
