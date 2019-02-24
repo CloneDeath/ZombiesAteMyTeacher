@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Floor.png-37a4d5f81c03cc16dd5eaa2919768680.stex"
+path="res://.import/Grass.png-e08e27726c324cda967368519a98c617.stex"
 
 [deps]
 
-source_file="res://Levels/Environment/Outdoors/Ground/Floor.png"
-dest_files=[ "res://.import/Floor.png-37a4d5f81c03cc16dd5eaa2919768680.stex" ]
+source_file="res://Levels/Environment/Outdoors/Ground/Grass.png"
+dest_files=[ "res://.import/Grass.png-e08e27726c324cda967368519a98c617.stex" ]
 
 [params]
 

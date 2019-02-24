@@ -6,6 +6,7 @@ var jump_speed = 175;
 var up_gravity = 400;
 var down_gravity = 200;
 var facing = 1;
+var already_jumped = false;
 
 func _process(delta):
 	execute_movement(delta);
@@ -15,10 +16,13 @@ func _process(delta):
 func execute_movement(delta):
 	var LEFT = Input.is_action_pressed("move_left");
 	var RIGHT = Input.is_action_pressed("move_right");
-	var JUMP = Input.is_action_just_pressed("move_jump");
-	var FALL = Input.is_action_just_released("move_jump");
-	if (is_on_floor() && JUMP):
+	var JUMP = Input.is_action_pressed("move_jump");
+	var FALL = !Input.is_action_pressed("move_jump");
+	if (FALL):
+		already_jumped = false;
+	if (is_on_floor() && JUMP && !already_jumped):
 		velocity.y = -jump_speed;
+		already_jumped = true;
 	if (velocity.y < 0 && FALL):
 		velocity.y = 0;
 	velocity.x = (int(RIGHT)-int(LEFT)) * walk_speed;

@@ -16,8 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Zombies Ate My Teacher"
-run/main_scene="res://Levels/BaseLevel.tscn"
+run/main_scene="res://Levels/Levels/Classroom/Classroom.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1040
+window/size/height=640
 
 [importer_defaults]
 
