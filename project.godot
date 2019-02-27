@@ -10,11 +10,23 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
+"class": "BaseState",
+"language": "GDScript",
+"path": "res://Player/States/BaseState.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Player/Player.gd"
+}, {
+"base": "Node",
 "class": "PlayerInput",
 "language": "GDScript",
 "path": "res://Player/PlayerInput.gd"
 } ]
 _global_script_class_icons={
+"BaseState": "",
+"Player": "",
 "PlayerInput": ""
 }
 
