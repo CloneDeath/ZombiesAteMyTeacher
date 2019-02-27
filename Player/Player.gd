@@ -8,39 +8,49 @@ var down_gravity = 200;
 var facing = 1;
 var already_jumped = false;
 
+var input = PlayerInput.new();
+
 func _process(delta):
 	execute_movement(delta);
+	execute_attacks();
 	execute_animation_update();
 	execute_facing_update();
 
 func execute_movement(delta):
-	var LEFT = Input.is_action_pressed("move_left");
-	var RIGHT = Input.is_action_pressed("move_right");
-	var JUMP = Input.is_action_pressed("move_jump");
-	var FALL = !Input.is_action_pressed("move_jump");
-	if (FALL):
+	if (input.Fall):
 		already_jumped = false;
-	if (is_on_floor() && JUMP && !already_jumped):
-		velocity.y = -jump_speed;
+	if (is_on_floor() && input.Jump && !already_jumped && !is_attacking()):
+		$Animation.play("jump");
 		already_jumped = true;
-	if (velocity.y < 0 && FALL):
+	if (velocity.y < 0 && input.Fall):
 		velocity.y = 0;
-	velocity.x = (int(RIGHT)-int(LEFT)) * walk_speed;
+	if (!is_attacking() || !is_on_floor()):
+		velocity.x = (int(input.Right)-int(input.Left)) * walk_speed;
+	else:
+		velocity.x = 0;
 	if (velocity.y < 0):
 		velocity.y += up_gravity * delta;
 	else:
 		velocity.y += down_gravity * delta;
 	velocity = self.move_and_slide(velocity, Vector2(0, -1));
 
+func do_jump():
+	velocity.y = -jump_speed;
+
+func execute_attacks():
+	if (input.Attack && !is_attacking()):
+		set_animation("attack-knife");
+
+func is_attacking():
+	return $Animation.current_animation == "attack-knife";
+
 func is_on_floor():
 	return $Sprite/GroundDetector.get_overlapping_bodies().size() > 0;
 
 func execute_animation_update():
-	var LEFT = Input.is_action_pressed("move_left");
-	var RIGHT = Input.is_action_pressed("move_right");
-
+	if (is_attacking()): return;
 	if (is_on_floor()):
-		if (LEFT == RIGHT):
+		if (input.Left == input.Right):
 			set_animation("idle");
 		else:
 			set_animation("run");
@@ -52,8 +62,7 @@ func set_animation(animation):
 	$Animation.play(animation);
 
 func execute_facing_update():
-	var LEFT = Input.is_action_pressed("move_left");
-	var RIGHT = Input.is_action_pressed("move_right");
-	if (LEFT != RIGHT):
-		facing = 1 if RIGHT else -1;
+	if (is_attacking()): return;
+	if (input.Left != input.Right):
+		facing = 1 if input.Right else -1;
 	$Sprite.scale.x = facing;
