@@ -27,6 +27,7 @@ position = Vector2( 32, 112 )
 
 [node name="Zombie" parent="." index="2" instance=ExtResource( 3 )]
 position = Vector2( 112, 112 )
+facing = -1
 
 [node name="Zombie2" parent="." index="3" instance=ExtResource( 3 )]
 position = Vector2( 288, 112 )

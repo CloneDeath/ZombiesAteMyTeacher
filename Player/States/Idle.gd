@@ -3,6 +3,7 @@ extends BaseState
 func update(player: Player, _input: PlayerInput):
 	player.velocity.x = 0;
 	player.set_animation("Idle");
+	player.update_facing();
 
 func get_next_state(player: Player, input: PlayerInput):
 	if (!player.is_on_floor()):

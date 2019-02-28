@@ -1,16 +1,20 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.png" type="Texture" id=2]
-[ext_resource path="res://Player/StateMachine.gd" type="Script" id=3]
-[ext_resource path="res://Player/States/Idle.gd" type="Script" id=4]
-[ext_resource path="res://Player/States/Run.gd" type="Script" id=5]
-[ext_resource path="res://Player/States/InAir.gd" type="Script" id=6]
-[ext_resource path="res://Player/States/Jump.gd" type="Script" id=7]
-[ext_resource path="res://Player/States/Attack.gd" type="Script" id=8]
+[ext_resource path="res://Player/DamageArea.gd" type="Script" id=3]
+[ext_resource path="res://Player/StateMachine.gd" type="Script" id=4]
+[ext_resource path="res://Player/States/Idle.gd" type="Script" id=5]
+[ext_resource path="res://Player/States/Run.gd" type="Script" id=6]
+[ext_resource path="res://Player/States/InAir.gd" type="Script" id=7]
+[ext_resource path="res://Player/States/Jump.gd" type="Script" id=8]
+[ext_resource path="res://Player/States/Attack.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3, 2 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 8, 2 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 3, 11 )
@@ -31,6 +35,32 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 5, 6 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/DamageArea:collision_mask")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 4 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Sprite/DamageArea")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "reset_damage"
+} ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "Idle"
@@ -42,6 +72,18 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/DamageArea:collision_mask")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -62,6 +104,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/DamageArea:collision_mask")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -93,6 +147,18 @@ tracks/1/keys = {
 "method": "do_jump"
 } ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/DamageArea:collision_mask")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
 
 [sub_resource type="Animation" id=5]
 resource_name = "Run"
@@ -110,6 +176,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 3, 4 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/DamageArea:collision_mask")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
 
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
@@ -122,14 +200,26 @@ position = Vector2( 0, -14.4 )
 scale = Vector2( 0.9, 0.9 )
 texture = ExtResource( 2 )
 hframes = 7
-frame = 3
+frame = 5
 
 [node name="GroundDetector" type="Area2D" parent="Sprite"]
+editor/display_folded = true
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/GroundDetector"]
 position = Vector2( 0, 16 )
 shape = SubResource( 1 )
+
+[node name="DamageArea" type="Area2D" parent="Sprite"]
+position = Vector2( 16.5, 1.5 )
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/DamageArea"]
+modulate = Color( 1, 0.00784314, 0.00784314, 1 )
+position = Vector2( -3.5, 1.5 )
+shape = SubResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -11 )
@@ -144,20 +234,21 @@ anims/Jump = SubResource( 4 )
 anims/Run = SubResource( 5 )
 
 [node name="StateMachine" type="Node" parent="."]
-script = ExtResource( 3 )
-
-[node name="Idle" type="Node" parent="StateMachine"]
+editor/display_folded = true
 script = ExtResource( 4 )
 
-[node name="Run" type="Node" parent="StateMachine"]
+[node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource( 5 )
 
-[node name="InAir" type="Node" parent="StateMachine"]
+[node name="Run" type="Node" parent="StateMachine"]
 script = ExtResource( 6 )
 
-[node name="Jump" type="Node" parent="StateMachine"]
+[node name="InAir" type="Node" parent="StateMachine"]
 script = ExtResource( 7 )
 
-[node name="Attack" type="Node" parent="StateMachine"]
+[node name="Jump" type="Node" parent="StateMachine"]
 script = ExtResource( 8 )
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource( 9 )
 
