@@ -22,6 +22,7 @@ func _ready():
 func _process(_delta):
 	if (Engine.editor_hint):
 		update_bounds();
+		return;
 	activate_camera();
 
 func activate_camera():

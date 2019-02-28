@@ -5,7 +5,7 @@ var Health;
 export(int) var MaxHealth = 1;
 export(String) var SoulName = null;
 
-var initial_position;
+onready var initial_position = self.position;
 
 func _ready():
 	initial_position = position;
