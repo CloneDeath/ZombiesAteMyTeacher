@@ -1,6 +1,8 @@
 extends KinematicBody2D
 class_name Player
 
+var experience = 0;
+
 var velocity = Vector2(0, 0);
 var jump_speed = 175;
 var up_gravity = 400;
@@ -34,3 +36,6 @@ func update_facing():
 	if (input.Left != input.Right):
 		facing = 1 if input.Right else -1;
 	$Sprite.scale.x = facing;
+
+func give_xp(xp):
+	self.experience += xp;

@@ -1,12 +1,11 @@
-extends KinematicBody2D
+extends "res://Levels/Enemies/BaseEnemy.gd"
+tool
 
 export(int, -1, 1, 2) var facing = 1;
 
-func damage(_amount):
-	$CPUParticles2D.emitting = true;
+func damage(amount):
+	.damage(amount);
+	$StateMachine.transition_to_state("Damaged");
 
-func _physics_process(delta):
-	var collided = move_and_collide(Vector2(facing*10*delta, 0));
-	if (collided):
-		facing *= -1;
+func _physics_process(_delta):
 	$Sprite.scale.x = facing;

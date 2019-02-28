@@ -32,7 +32,15 @@ func activate_camera():
 	$Camera.position.x = player.position.x;
 	$Camera.position.y = player.position.y - 32;
 	if (is_in_camera_limit(player.position)):
+		if (!$Camera.current):
+			for enemy in get_tree().get_nodes_in_group("enemy"):
+				if (is_in_camera_limit(enemy.initial_position)):
+					enemy.respawn();
+				else:
+					enemy.disable();
 		$Camera.current = true;
+	else:
+		$Camera.current = false;
 
 func is_in_camera_limit(point):
 	if (point.x < $Camera.limit_left): return false;

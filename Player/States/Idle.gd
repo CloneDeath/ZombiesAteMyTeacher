@@ -1,11 +1,12 @@
-extends BaseState
+extends State
 
-func update(player: Player, _input: PlayerInput):
+func update(player: Player, _delta):
 	player.velocity.x = 0;
 	player.set_animation("Idle");
 	player.update_facing();
 
-func get_next_state(player: Player, input: PlayerInput):
+func get_next_state(player: Player):
+	var input = player.input;
 	if (!player.is_on_floor()):
 		return "InAir";
 	if (input.Left || input.Right):
@@ -14,4 +15,4 @@ func get_next_state(player: Player, input: PlayerInput):
 		return "Jump";
 	if (input.Attack):
 		return "Attack";
-	return .get_next_state(player, input);
+	return .get_next_state(player);

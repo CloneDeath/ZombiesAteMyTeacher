@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
-"class": "BaseState",
-"language": "GDScript",
-"path": "res://Player/States/BaseState.gd"
-}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -23,11 +18,22 @@ _global_script_classes=[ {
 "class": "PlayerInput",
 "language": "GDScript",
 "path": "res://Player/PlayerInput.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://Engine/StateMachine/State.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://Engine/StateMachine/StateMachine.gd"
 } ]
 _global_script_class_icons={
-"BaseState": "",
 "Player": "",
-"PlayerInput": ""
+"PlayerInput": "",
+"State": "",
+"StateMachine": ""
 }
 
 [application]
