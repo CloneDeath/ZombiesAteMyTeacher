@@ -10,7 +10,6 @@ tile_data = PoolIntArray( -1113906, 0, 6, -1113905, 0, 2, -1113904, 0, 2, -11139
 [node name="Cells" type="Node2D" parent="." index="0"]
 
 [node name="Homeroom" parent="Cells" index="0" instance=ExtResource( 2 )]
-editor/display_folded = true
 
 [node name="Zombie" parent="Cells/Homeroom" index="1" instance=ExtResource( 3 )]
 position = Vector2( 112, 112 )

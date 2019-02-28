@@ -70,6 +70,7 @@ tracks/1/keys = {
 [node name="Zombie" index="0" instance=ExtResource( 1 )]
 collision_layer = 4
 script = ExtResource( 2 )
+MaxHealth = 3
 SoulName = "Zombie"
 
 [node name="Sprite" parent="." index="0"]

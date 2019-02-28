@@ -22,7 +22,7 @@ func damage(amount):
 	damage.value = amount;
 	$DamageNumberSpawn.add_child(damage);
 	Health -= 1;
-	if (Health < MaxHealth):
+	if (Health <= 0):
 		kill();
 
 func kill():
