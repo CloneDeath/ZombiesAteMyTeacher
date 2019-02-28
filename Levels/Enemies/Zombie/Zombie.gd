@@ -1,5 +1,4 @@
 extends "res://Levels/Enemies/BaseEnemy.gd"
-tool
 
 export(int, -1, 1, 2) var facing = 1;
 
