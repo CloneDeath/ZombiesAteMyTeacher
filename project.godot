@@ -20,6 +20,11 @@ _global_script_classes=[ {
 "path": "res://Player/PlayerInput.gd"
 }, {
 "base": "Node",
+"class": "SoulFragment",
+"language": "GDScript",
+"path": "res://Player/SoulFragment.gd"
+}, {
+"base": "Node",
 "class": "State",
 "language": "GDScript",
 "path": "res://Engine/StateMachine/State.gd"
@@ -32,6 +37,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Player": "",
 "PlayerInput": "",
+"SoulFragment": "",
 "State": "",
 "StateMachine": ""
 }

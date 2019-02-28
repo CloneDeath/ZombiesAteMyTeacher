@@ -1,7 +1,10 @@
 extends KinematicBody2D
 class_name Player
 
-var experience = 0;
+var health;
+var max_health setget ,get_max_health;
+func get_max_health():
+	return 1 + $SoulFragments/Zombie.level;
 
 var velocity = Vector2(0, 0);
 var jump_speed = 175;
@@ -10,6 +13,9 @@ var down_gravity = 200;
 var facing = 1;
 
 var input = PlayerInput.new();
+
+func _ready():
+	health = self.max_health;
 
 func _process(delta):
 	input.update(delta);
@@ -37,5 +43,5 @@ func update_facing():
 		facing = 1 if input.Right else -1;
 	$Sprite.scale.x = facing;
 
-func give_xp(xp):
-	self.experience += xp;
+func give_soul_fragment(soul):
+	$SoulFragments.get_node(soul).increment();

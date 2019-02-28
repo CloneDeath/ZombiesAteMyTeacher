@@ -2,8 +2,8 @@ extends KinematicBody2D
 var float_text_scene = load("res://Engine/FloatingNumber/FloatingNumber.tscn");
 
 var Health;
-export var MaxHealth = 1;
-export var XpValue = 1;
+export(int) var MaxHealth = 1;
+export(String) var SoulName = null;
 
 var initial_position;
 
@@ -28,7 +28,7 @@ func damage(amount):
 func kill():
 	disable();
 	for player in get_tree().get_nodes_in_group("player"):
-		player.give_xp(XpValue);
+		player.give_soul_fragment(SoulName);
 
 func disable():
 	$Sprite.visible = false;

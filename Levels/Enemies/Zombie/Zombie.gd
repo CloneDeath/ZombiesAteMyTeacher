@@ -9,3 +9,11 @@ func damage(amount):
 
 func _physics_process(_delta):
 	$Sprite.scale.x = facing;
+
+func kill():
+	.kill();
+	$StateMachine.transition_to_state("Idle");
+
+func respawn():
+	.respawn();
+	$StateMachine.transition_to_state("Move");

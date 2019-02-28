@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.png" type="Texture" id=2]
@@ -9,8 +9,7 @@
 [ext_resource path="res://Player/States/InAir.gd" type="Script" id=7]
 [ext_resource path="res://Player/States/Jump.gd" type="Script" id=8]
 [ext_resource path="res://Player/States/Attack.gd" type="Script" id=9]
-
-
+[ext_resource path="res://Player/SoulFragments/Zombie.gd" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3, 2 )
@@ -234,6 +233,7 @@ anims/Jump = SubResource( 7 )
 anims/Run = SubResource( 8 )
 
 [node name="StateMachine" type="Node" parent="."]
+editor/display_folded = true
 script = ExtResource( 4 )
 
 [node name="Idle" type="Node" parent="StateMachine"]
@@ -250,4 +250,9 @@ script = ExtResource( 8 )
 
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource( 9 )
+
+[node name="SoulFragments" type="Node" parent="."]
+
+[node name="Zombie" type="Node" parent="SoulFragments"]
+script = ExtResource( 10 )
 
