@@ -11,6 +11,10 @@ var Right setget ,get_right;
 func get_right(): return Input.is_action_pressed("move_right");
 
 #warning-ignore:unused_class_variable
+var Crouch setget ,get_crouch;
+func get_crouch(): return Input.is_action_pressed("move_crouch");
+
+#warning-ignore:unused_class_variable
 var Fall setget ,get_fall;
 func get_fall(): return !Input.is_action_pressed("move_jump");
 

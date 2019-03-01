@@ -45,3 +45,7 @@ func update_facing():
 
 func give_soul_fragment(soul):
 	$SoulFragments.get_node(soul).increment();
+
+func allow_fall_through(mode):
+	set_collision_mask_bit(3, !mode);
+	$Sprite/GroundDetector.set_collision_mask_bit(3, !mode);

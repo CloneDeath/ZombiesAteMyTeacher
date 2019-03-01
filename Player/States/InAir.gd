@@ -9,10 +9,14 @@ func update(player: Player, _delta):
 	var velocity = (int(input.Right)-int(input.Left));
 	player.velocity.x = velocity * run_speed;
 	player.set_animation("InAir");
+	if (!input.Crouch):
+		player.allow_fall_through(false);
 
 func get_next_state(player: Player):
 	var input = player.input;
 	if (player.is_on_floor()):
+		if (input.Crouch):
+			return "Crouch";
 		return "Idle";
 	if (input.Attack):
 		return "Attack";
