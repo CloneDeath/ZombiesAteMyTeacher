@@ -228,7 +228,7 @@ script = ExtResource( 1 )
 position = Vector2( 0, -14.4 )
 scale = Vector2( 0.9, 0.9 )
 texture = ExtResource( 2 )
-hframes = 8
+hframes = 9
 
 [node name="GroundDetector" type="Area2D" parent="Sprite"]
 editor/display_folded = true
