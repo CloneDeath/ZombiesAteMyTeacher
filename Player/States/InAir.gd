@@ -12,6 +12,7 @@ func update(player: Player, _delta):
 	player.set_animation("InAir");
 	if (!input.Crouch):
 		player.allow_fall_through(false);
+	player.update_facing();
 
 func get_next_state(player: Player):
 	var input = player.input;
