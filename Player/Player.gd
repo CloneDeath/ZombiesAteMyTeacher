@@ -45,11 +45,15 @@ func take_damage():
 
 func damage(source, amount):
 	if (!can_take_damage()): return;
+	self.health -= amount;
+	if (self.health <= 0):
+		self.health = 0;
+		$StateMachine.transition_to_state("Dead");
+		return;
 	invulnerable = 3;
 	$StateMachine.transition_to_state("Damaged");
 	var vel_sign = sign(self.position.x - source.position.x);
 	self.velocity.x = vel_sign * 50;
-	self.health -= amount;
 
 func can_take_damage():
 	return invulnerable <= 0;
