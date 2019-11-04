@@ -67,7 +67,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="Zombie" index="0" instance=ExtResource( 1 )]
+[node name="Zombie" instance=ExtResource( 1 )]
 collision_layer = 4
 script = ExtResource( 2 )
 MaxHealth = 3
@@ -118,4 +118,3 @@ script = ExtResource( 6 )
 
 [node name="Idle" type="Node" parent="StateMachine" index="2"]
 script = ExtResource( 7 )
-
