@@ -14,14 +14,13 @@ position = Vector2( 648, 56 )
 [node name="Cells" type="Node2D" parent="." index="1"]
 
 [node name="Homeroom" parent="Cells" index="0" instance=ExtResource( 2 )]
-editor/display_folded = true
+Cells = Rect2( 0, 0, 1, 1 )
 
 [node name="Zombie" parent="Cells/Homeroom" index="1" instance=ExtResource( 3 )]
 position = Vector2( 112, 112 )
 facing = -1
 
 [node name="Hallway" parent="Cells" index="1" instance=ExtResource( 2 )]
-editor/display_folded = true
 Cells = Rect2( 1, 0, 2, 1 )
 
 [node name="Zombie2" parent="Cells/Hallway" index="1" instance=ExtResource( 3 )]
@@ -40,7 +39,6 @@ position = Vector2( 736, 112 )
 position = Vector2( 736, 108 )
 
 [node name="FootballField" parent="Cells" index="3" instance=ExtResource( 2 )]
-editor/display_folded = true
 Cells = Rect2( 4, 0, 3, 1 )
 
 [node name="Zombie5" parent="Cells/FootballField" index="1" instance=ExtResource( 3 )]
@@ -68,16 +66,13 @@ facing = -1
 position = Vector2( 1416, 112 )
 
 [node name="FootballStands2" parent="Cells" index="4" instance=ExtResource( 2 )]
-editor/display_folded = true
 Cells = Rect2( 7, 0, 1, 1 )
 
 [node name="Zombie12" parent="Cells/FootballStands2" index="1" instance=ExtResource( 3 )]
 position = Vector2( 1496, 112 )
 
 [node name="Stairwell" parent="Cells" index="5" instance=ExtResource( 2 )]
-editor/display_folded = true
 Cells = Rect2( 8, -1, 1, 2 )
 
 [node name="Zombie13" parent="Cells/Stairwell" index="1" instance=ExtResource( 3 )]
 position = Vector2( 1728, 112 )
-
