@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Levels/Environment/School/Intro/Teacher/Teacher.png" type="Texture" id=1]
+
+[node name="Teacher" type="Node2D"]
+
+[node name="TeacherSprite" type="Sprite" parent="."]
+position = Vector2( 0, -16 )
+texture = ExtResource( 1 )
+hframes = 9
