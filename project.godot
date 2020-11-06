@@ -45,7 +45,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Zombies Ate My Teacher"
-run/main_scene="res://Levels/Levels/Classroom/Classroom.tscn"
+run/main_scene="res://Menu/Main/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [display]
