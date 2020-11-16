@@ -3,8 +3,10 @@
 [ext_resource path="res://Levels/Environment/Outdoors/Ground/Cement_simple.png" type="Texture" id=1]
 [ext_resource path="res://Levels/Environment/Outdoors/Ground/Grass.png" type="Texture" id=2]
 [ext_resource path="res://Levels/Levels/BaseLevel.gd" type="Script" id=3]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://NeekoFont.ttf" type="DynamicFontData" id=5]
+
+
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )

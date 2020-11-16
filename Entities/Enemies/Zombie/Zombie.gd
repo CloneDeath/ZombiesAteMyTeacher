@@ -1,4 +1,4 @@
-extends "res://Levels/Enemies/BaseEnemy.gd"
+extends "res://Entities/Enemies/BaseEnemy.gd"
 
 export(int, -1, 1, 2) var facing = 1;
 
