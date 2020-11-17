@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends BaseEntity
 class_name Player
 
 var health;

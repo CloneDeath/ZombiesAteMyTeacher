@@ -2,7 +2,6 @@
 
 [ext_resource path="res://Entities/Enemies/BaseEnemy.gd" type="Script" id=1]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 
 [node name="BaseEnemy" type="KinematicBody2D" groups=[
@@ -17,4 +16,3 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="DamageNumberSpawn" type="Position2D" parent="."]
-

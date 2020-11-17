@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "KinematicBody2D",
+"class": "BaseEntity",
+"language": "GDScript",
+"path": "res://Entities/BaseEntity/BaseEntity.gd"
+}, {
+"base": "BaseEntity",
 "class": "Player",
 "language": "GDScript",
 "path": "res://Entities/Player/Player.gd"
@@ -35,6 +40,7 @@ _global_script_classes=[ {
 "path": "res://Engine/StateMachine/StateMachine.gd"
 } ]
 _global_script_class_icons={
+"BaseEntity": "",
 "Player": "",
 "PlayerInput": "",
 "SoulFragment": "",
@@ -50,6 +56,7 @@ config/icon="res://icon.png"
 
 [debug]
 
+gdscript/warnings/treat_warnings_as_errors=true
 gdscript/warnings/return_value_discarded=false
 
 [display]

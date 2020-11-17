@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends BaseEntity
 var float_text_scene = load("res://Engine/FloatingNumber/FloatingNumber.tscn");
 
 var Health;
