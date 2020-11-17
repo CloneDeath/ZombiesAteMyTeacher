@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Entities/Enemies/BaseEnemy.gd" type="Script" id=1]
+[ext_resource path="res://Entities/BaseEntity/BaseEntity.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
-[node name="BaseEnemy" type="KinematicBody2D" groups=[
+[node name="BaseEnemy" instance=ExtResource( 2 ) groups=[
 "enemy",
 ]]
 z_index = 1
